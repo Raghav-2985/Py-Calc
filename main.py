@@ -7,47 +7,45 @@ def add(*nums): #addition
   return value
 
 def subtract(*nums): #subtraction
+  value = 0
   for n in nums:
-    value = 0 
     value = value - n
   return value
 
 # frontend 
+while True:
 
 # receive numbers as input
-try: 
-  user=int(input("How many numbers do have on your calculation"))
-except ValueError:
-  print("Invalid Input")
-  print("Enter a valid non zero positive number")
-
-operationNums=[]
-for i in range(user):
-  try:
-    numbers=int(input(f"Enter {i}st number:"))
+  try: 
+    user=int(input("How many numbers do have on your calculation"))
   except ValueError:
-    print("Invalid Number")
-    print("Counting it as 0")
-  else:
-    operationNums.append(numbers)
+    print("Invalid Input")
+    print("Enter a valid non zero positive number")
+
+  operationNums=[]
+  for i in range(user):
+    try:
+      numbers=int(input(f"Enter {i}st number:"))
+    except ValueError:
+      print("Invalid Number")
+      print("Counting it as 0")
+    else:
+      operationNums.append(numbers)
 
 # receive operation type and perform operation
-def takeop():
-  operation =input("Enter Operation to perform:")
+  def takeop():
+    try:
+      operation =int(input("Enter Operation to perform:"))
+    except ValueError:
+      print("Enter a valid operation")
+      takeop()
+    return operation
 
-  if operation != int:
-   print("Enter a valid operation:")
-   takeop()
-  else:
-    int(operation)
+  userOperation = takeop()
 
-  return operation
-
-userOperation = takeop()
-
-match userOperation:
-  case 1:
-    print(f"Addition of your given number: {add(*operationNums)}")
-  case 2:
-    print(f"Subtraction of your given number: {subtract(*operationNums)}")
+  match userOperation:
+    case 1:
+     print(f"Addition of your given number: {add(*operationNums)}")
+    case 2:
+     print(f"Subtraction of your given number: {subtract(*operationNums)}")
   
