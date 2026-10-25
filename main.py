@@ -1,23 +1,35 @@
 #  Calculators Functions 
 
+def showHelp():
+  msg=f"Hi, Thank you for using Py-Calc(also called Python Calculator). If you want any new feature you can contact us from our GitHub profile \n Here are the following number for each operation: \n 1 - Addition \n 2 - Subtraction \n 3 - Multiplication \n Note: P-Calc is case sensitive and users are requested not to use spaces."
+  print(msg)
+
 def add(*nums): #addition 
+  value = 0
   for n in nums:
-    value = 0
     value = value + n 
   return value
 
 def subtract(*nums): #subtraction
-  value = 0
-  for n in nums:
-    value = value - n
+  value = nums[0]
+  i=0
+  while i+1 < len(nums):
+    value = value - nums[i+1]
+    i = i+1
   return value
 
-# frontend 
-while True:
+def multiply(*nums):
+ value =1
+ for i in nums:
+  value= value * i
+ return value
 
+# frontend 
+showHelp()
+while True:
 # receive numbers as input
   try: 
-    user=int(input("How many numbers do have on your calculation"))
+    user=int(input("How many numbers do have on your calculation: "))
   except ValueError:
     print("Invalid Input")
     print("Enter a valid non zero positive number")
@@ -25,7 +37,7 @@ while True:
   operationNums=[]
   for i in range(user):
     try:
-      numbers=int(input(f"Enter {i}st number:"))
+      numbers=int(input(f"Enter #{i+1} number: "))
     except ValueError:
       print("Invalid Number")
       print("Counting it as 0")
@@ -35,7 +47,7 @@ while True:
 # receive operation type and perform operation
   def takeop():
     try:
-      operation =int(input("Enter Operation to perform:"))
+      operation =int(input("Enter Operation to perform: "))
     except ValueError:
       print("Enter a valid operation")
       takeop()
@@ -48,4 +60,5 @@ while True:
      print(f"Addition of your given number: {add(*operationNums)}")
     case 2:
      print(f"Subtraction of your given number: {subtract(*operationNums)}")
-  
+    case 3:
+     print(f"Multiplication of your given number: {multiply(*operationNums)}")
