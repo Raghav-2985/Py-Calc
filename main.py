@@ -1,7 +1,7 @@
 #  Calculators Functions 
 
 def showHelp():
-  msg=f"Hi, Thank you for using Py-Calc(also called Python Calculator). If you want any new feature you can contact us from our GitHub profile \n Here are the following number for each operation: \n 1 - Addition \n 2 - Subtraction \n 3 - Multiplication \n Note: P-Calc is case sensitive and users are requested not to use spaces."
+  msg=f"\U0001F44B, Thank you for using Py-Calc(also called Python Calculator). If you want any new feature you can contact us from our GitHub profile \n Here are the following number for each operation: \n 1 - Addition \n 2 - Subtraction \n 3 - Multiplication \n Note: Py-Calc is case sensitive and users are requested not to use spaces. \n"
   print(msg)
 
 def add(*nums): #addition 
@@ -27,6 +27,18 @@ def multiply(*nums):
 # frontend 
 showHelp()
 while True:
+# receive operation type and perform operation
+  def takeop():
+    try:
+      operation =int(input("Enter Operation to perform: "))
+    except ValueError:
+      print("Enter a valid operation")
+      takeop()
+    return operation
+
+  userOperation = takeop()
+
+  
 # receive numbers as input
   try: 
     user=int(input("How many numbers do have on your calculation: "))
@@ -44,21 +56,11 @@ while True:
     else:
       operationNums.append(numbers)
 
-# receive operation type and perform operation
-  def takeop():
-    try:
-      operation =int(input("Enter Operation to perform: "))
-    except ValueError:
-      print("Enter a valid operation")
-      takeop()
-    return operation
-
-  userOperation = takeop()
-
+# Print Output
   match userOperation:
-    case 1:
-     print(f"Addition of your given number: {add(*operationNums)}")
-    case 2:
-     print(f"Subtraction of your given number: {subtract(*operationNums)}")
-    case 3:
-     print(f"Multiplication of your given number: {multiply(*operationNums)}")
+      case 1:
+       print(f"Addition of your given number: {add(*operationNums)}")
+      case 2:
+       print(f"Subtraction of your given number: {subtract(*operationNums)}")
+      case 3:
+       print(f"Multiplication of your given number: {multiply(*operationNums)}")
