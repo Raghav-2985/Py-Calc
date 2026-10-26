@@ -18,11 +18,17 @@ def subtract(*nums): #subtraction
     i = i+1
   return value
 
-def multiply(*nums):
+def multiply(*nums): # Multiplication
  value =1
  for i in nums:
   value= value * i
  return value
+
+def divide(*nums):  # Division
+  value = nums[0]
+  i=0
+  while i+1 < len(nums):
+    value = value / nums[i+1]
 
 # frontend 
 showHelp()
@@ -64,3 +70,5 @@ while True:
        print(f"Subtraction of your given number: {subtract(*operationNums)}")
       case 3:
        print(f"Multiplication of your given number: {multiply(*operationNums)}")
+      case 4:
+       print(f"Division of your given number: {divide(*operationNums)}")
