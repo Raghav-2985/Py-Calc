@@ -5,7 +5,7 @@ user = None
 #  Calculators Functions 
 
 def showHelp():
-  msg=f"\U0001F44B, Thank you for using Py-Calc(also called Python Calculator). If you want any new feature you can contact us from our GitHub profile \n Here are the following number for each operation: \n 1 - Addition \n 2 - Subtraction \n 3 - Multiplication \n 4 - Division \n 5 - Floor Division \n 6 - Modulo Division \n 7 - Square (Single number is allowed) \n 8 - Cube (Single number is allowed)\n 9 - Square Root (Single number is allowed) \n 10 - Cube Root (Single number is allowed) \n Note: \n Py-Calc is case sensitive and users are requested not to use spaces. \n"
+  msg=f"\U0001F44B, Thank you for using Py-Calc(also called Python Calculator). If you want any new feature you can contact us from our GitHub profile \n Here are the following number for each operation: \n 1 - Addition \n 2 - Subtraction \n 3 - Multiplication \n 4 - Division \n 5 - Floor Division \n 6 - Modulo Division \n 7 - Square (Single number is allowed) \n 8 - Cube (Single number is allowed)\n 9 - Square Root (Single number is allowed) \n 10 - Cube Root (Single number is allowed) \n 11 - Abs (Single number is allowed) \n Note: \n Py-Calc is case sensitive and users are requested not to use spaces. \n"
   print(msg)
 
 def add(*nums): #addition 
@@ -68,6 +68,12 @@ def cuRoot(num): # cube root
   user = 1
   value = math.cbrt(num)
   return value
+
+def doAbs(num): # abs
+  user = 1
+  value = abs(num)
+  return value
+
 # frontend 
 showHelp()
 while True:
@@ -123,5 +129,6 @@ while True:
        print(f"Square Root of your given number: {divide(*operationNums)}")
       case 10:
        print(f"Cube Root of your given number: {divide(*operationNums)}")
-       
+      case 11:
+       print(f"Abs of your given number: {doAbs(*operationNums)}") 
        
