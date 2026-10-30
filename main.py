@@ -5,7 +5,7 @@ user = None
 #  Calculators Functions 
 
 def showHelp():
-  msg=f"\U0001F44B, Thank you for using Py-Calc(also called Python Calculator). If you want any new feature you can contact us from our GitHub profile \n Here are the following number for each operation: \n 1 - Addition \n 2 - Subtraction \n 3 - Multiplication \n 4 - Division \n 5 - Floor Division \n 6 - Modulo Division \n 7 - Square (Single number is allowed) \n 8 - Cube (Single number is allowed)\n 9 - Square Root (Single number is allowed) \n 10 - Cube Root (Single number is allowed) \n 11 - Abs (Single number is allowed) \n Note: \n Py-Calc is case sensitive and users are requested not to use spaces. \n"
+  msg=f"\U0001F44B, Thank you for using Py-Calc(also called Python Calculator). If you want any new feature you can contact us from our GitHub profile \n Here are the following number for each operation: \n 1 - Addition \n 2 - Subtraction \n 3 - Multiplication \n 4 - Division \n 5 - Floor  \n 6 - Modulo Division \n 7 - Square (Single number is allowed) \n 8 - Cube (Single number is allowed)\n 9 - Square Root (Single number input is allowed) \n 10 - Cube Root (Single number input is allowed) \n 11 - Abs (Single number input is allowed) \n 12 - Exponential terms (2 number inputs are allowed: 1. The number itself 2. Its power) \n Note: \n Py-Calc is case sensitive and users are requested not to use spaces. \n If user add more number inputs than the allowed number inputs then the rest will be ignored"
   print(msg)
 
 def add(*nums): #addition 
@@ -49,29 +49,28 @@ def modulo(*nums): # modulo
     value = value % nums[i+1]
   return value
 
-def square(num): # square
-  user = 1
-  value = num ** 2
+def square(*num): # square
+  value = num[0] ** 2
   return value
 
-def cube(num): # cube 
-  user = 1
-  value = num ** 3
+def cube(*num): # cube 
+  value = num[0] ** 3
   return value
 
-def sqRoot(num): # square root
-  user = 1 
-  value = math.sqrt(num)
+def sqRoot(*num): # square root
+  value = math.sqrt(num[0])
   return value
 
-def cuRoot(num): # cube root
-  user = 1
-  value = math.cbrt(num)
+def cuRoot(*num): # cube root
+  value = math.cbrt(num[0])
   return value
 
-def doAbs(num): # abs
-  user = 1
-  value = abs(num)
+def doAbs(*num): # abs
+  value = abs(num[0])
+  return value
+
+def exp(*num): # exponential terms
+  value = num[0] ** num[1]
   return value
 
 # frontend 
@@ -131,4 +130,7 @@ while True:
        print(f"Cube Root of your given number: {divide(*operationNums)}")
       case 11:
        print(f"Abs of your given number: {doAbs(*operationNums)}") 
-       
+      case 12:
+       print(f"Value of your given exponential term: {exp(*operationNums)}")
+      case _:
+       print("Invalid Operation")
